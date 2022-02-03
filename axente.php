@@ -56,15 +56,13 @@
         if(count($partes_data)==3){
             if(checkdate($partes_data[1],$partes_data[0],$partes_data[2])){
 
-                print "<p> O campo nome usuario é : $dNac </p>";
+                print "<p> O campo data nacemento é : $dNac </p>";
 
             }else{
                 print "A data non e valida </p>";
             }
 
-        }
-
-    }else{
+        }  else{
 
         print "<p> O campo nome usuario é : $dNac </p>";
     }
