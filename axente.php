@@ -49,7 +49,6 @@
     if ($dNac == ""){
         
         print "<p> O campo data de nacemento esta baleiro.  </p>";
-    
 
     }else{
         $partes_data=explode("/",$dNac);
@@ -59,12 +58,45 @@
                 print "<p> O campo data nacemento é : $dNac </p>";
 
             }else{
-                print "A data non e valida </p>";
+                print "A data de nacemento non e valida </p>";
             }
 
-        }  else{
+        }else{
 
         print "<p> O campo nome usuario é : $dNac </p>";
+    }
+    }
+
+
+
+    $email= htmlspecialchars (trim(strip_tags($_REQUEST['email'])),ENT_QUOTES,"ISO-8859-1");
+    if ($email == ""){
+
+        print "<p> O campo email esta baleiro. e un campo obligatorio </p>";
+
+    }else if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+
+        print "<p> O valor do campo email é : $nomeUsr </p>";
+
+    }else{
+        print "<p> O formato do email non e valido.  </p>";
+
+}
+
+
+
+
+
+
+    $url= htmlspecialchars (trim(strip_tags($_REQUEST['url'])),ENT_QUOTES,"ISO-8859-1");
+    if ($url == ""){
+        
+        print "<p> O url esta baleiro. e un campo obligatorio </p>";
+    }else if(filter_var($url,FILTER_VALIDATE_URL)){
+
+        print "<p> O campo url é : $url </p>";
+    }else{
+        print "<p> O formato da URL non e valido.  </p>";
     }
 
 
@@ -73,23 +105,20 @@
 
 
 
-    $email= htmlspecialchars (trim(strip_tags($_REQUEST['email'])),ENT_QUOTES,"ISO-8859-1");
-    if ($email == "")
-        print "<p> O campo email esta baleiro. e un campo obligatorio </p>";
-    else
-    print "<p> O campo email é : $nomeUsr </p>";
-
-    $url= htmlspecialchars (trim(strip_tags($_REQUEST['url'])),ENT_QUOTES,"ISO-8859-1");
-    if ($url == "")
-        print "<p> O url esta baleiro. e un campo obligatorio </p>";
-    else
-    print "<p> O campo url é : $url </p>";
-
     $ip= htmlspecialchars (trim(strip_tags($_REQUEST['ip'])),ENT_QUOTES,"ISO-8859-1");
-    if ($ip == "")
+    if ($ip == ""){
+
         print "<p> O campo ip esta baleiro. e un campo obligatorio </p>";
-    else
-    print "<p> O campo ip é : $nomeUsr </p>";
+    }else if(filter_var($ip,FILTER_VALIDATE_IP)){
+
+        print "<p> O campo ip é : $nomeUsr </p>";
+    }else{
+        print "<p> O formato da IP non e valido.  </p>";
+    }
+
+
+
+
 
     $hobbies= htmlspecialchars (trim(strip_tags($_REQUEST['hobbies'])),ENT_QUOTES,"ISO-8859-1");
     if ($hobbies == "")
